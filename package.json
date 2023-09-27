@@ -9,6 +9,7 @@
   "author": "Chris Palka",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "sec-api": "^3.1.5"
   }
 }

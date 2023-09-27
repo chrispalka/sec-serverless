@@ -1,5 +1,9 @@
 const { queryApi } = require('sec-api');
 queryApi.setApiKey(process.env.SEC_API);
+const headers = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Credentials': true,
+};
 
 exports.handler = async function () {
   const query = {
@@ -12,6 +16,7 @@ exports.handler = async function () {
   const filings = await queryApi.getFilings(query);
   return {
     statusCode: 200,
+    headers: headers,
     body: JSON.stringify({
       message: filings,
     }),
