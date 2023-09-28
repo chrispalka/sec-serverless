@@ -13,7 +13,8 @@ exports.handler = async function () {
     sort: [{ filedAt: { order: 'desc' } }], // sort result by filedAt
   };
 
-  const filings = await queryApi.getFilings(query);
+  const queryResponse = await queryApi.getFilings(query);
+
   return {
     statusCode: 200,
     headers: {
@@ -23,7 +24,7 @@ exports.handler = async function () {
       'Access-Control-Allow-Credentials': true,
     },
     body: JSON.stringify({
-      message: filings,
+      queryResponse,
     }),
   };
 };
