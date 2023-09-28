@@ -16,7 +16,6 @@ exports.handler = async function () {
   const filings = await queryApi.getFilings(query);
   return {
     statusCode: 200,
-    headers: headers,
     body: JSON.stringify({
       message: filings,
     }),
